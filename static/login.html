@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example Login Form</title>
+  </head>
+  <body>
+    <!-- user input-->
+    Username:<br />
+    <input
+      type="text"
+      name="username"
+      placeholder="Username"
+      id="username"
+      required
+    /><br /><br />
+    Password:<br />
+    <input
+      type="password"
+      name="password"
+      placeholder="Password"
+      id="password"
+      required
+    /><br /><br />
+    <!-- submit button -->
+    <input type="submit" value="login" onclick="log()" />
+  </body>
+  <script>
+    const log = async () => {
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+
+      //   fetch("http://localhost:200answerername: username, password: password }),
+      //   });
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+      });
+    };
+  </script>
+</html>
